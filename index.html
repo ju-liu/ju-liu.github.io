@@ -1,26 +1,21 @@
 ---
-title: home
-description: Homepage for Severyn Kozak's personal site.
-stylesheet: true
-sitemap:
-changefreq: monthly
-priority: 0.5
+layout: default
 ---
 
-<div id="out">
-  <div id="middle">
-    <div id="in">
-      <ul>
-        <li><a href="/about">about</a></li>
-        <li><a
-          href="/projects">projects</a></li>
-        <li><a
-          href="/articles">articles</a></li>
-        <li><a
-          href="/resume.pdf">resume</a></li>
-        <li><a
-          href="mailto:severyn.kozak@gmail.com">contact</a></li>
-      </ul>
-    </div>
-  </div>
+<div class="home">
+
+  <h2>What am I up to?</h2>
+  <a href="http://web.stanford.edu/~poulson/courses/MitRW15/">Teaching</a> in
+  the Spring quarter just flew by. I've recently added support for distributed
+  dense and sparse-direct Linear, Quadratic, and Second-Order Cone Programs into
+  <a href="https://github.com/elemental/Elemental">Elemental</a> and begun
+  integration into more user-friendly tools (e.g., <a
+    href="https://github.com/cvxgrp/cvxpy">CVXPY</a>). 
+  The current Second-Order Cone solver should be reasonably efficient for 
+  small second-order cones (e.g., those arising from 
+  complex $ \ell_1 $ penalties),
+  but efficient support for sparse SOC problems with large second-order cones
+  is upcoming, and support for distributed sparse Interior Point Methods for 
+  Semidefinite Programs is likely several months away.
+
 </div>

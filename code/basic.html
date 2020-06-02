@@ -119,7 +119,7 @@ $ cd ..
 $ rm -rf metis-<span class="hljs-number">5.0</span>.<span class="hljs-number">3</span>-src
 </code></pre>
 <h2 id="install-gmsh">Install Gmsh</h2>
-<p>The PERIGEE code does <strong>not</strong> depend on Gmsh. However, we frequently use Gmsh to generate input files for unstructured grid. Therefore, it is recommended that you install Gmsh on your machine. This step is <strong>unnecessary</strong> for compiling PERIGEE on clusters. Currently, the code is compatible with the mesh format from Gmsh-3. Run the following commands to install Gmsh. We do not need to link the PERIGEE code to Gmsh. For many cases, we generate a mesh using Gmsh as a binary executable.</p>
+<p>The analysis code does <strong>not</strong> rely on Gmsh. However, we frequently use Gmsh to generate input files for unstructured grid. Currently, the code is compatible with the mesh format from Gmsh-3. Run the following commands to install Gmsh. For many cases, we generate a mesh using Gmsh as a binary executable.</p>
 <pre><code class="lang-sh"><span class="hljs-symbol">$</span> wget http:<span class="hljs-comment">//gmsh.info/src/gmsh-3.0.6-source.tgz</span>
 <span class="hljs-symbol">$</span> tar -zxvf gmsh<span class="hljs-number">-3.0</span><span class="hljs-number">.6</span>-source.tgz
 <span class="hljs-symbol">$</span> cd gmsh<span class="hljs-number">-3.0</span><span class="hljs-number">.6</span>-source

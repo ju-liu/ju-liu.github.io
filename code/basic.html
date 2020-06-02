@@ -10,9 +10,9 @@ description: HPC
 <div class="cv">
 
 <h2 id="external-library-install-guide">External Library Install Guide</h2>
-<p>This is a guide for installing the VTK, PETSc, and related libraries, which are needed by the PERIGEE code. The default operating system is Linux Ubuntu. Installing these libraries on Mac OS may require minor changes in the following steps.</p>
-<p>In general, we do an out-of-source compiling, except for PETSc. We will have all the libraries installed in a specified location (in this guide, $HOME/lib). This is because we typically do not have the access to /usr/local in clusters. Essentially, this requires you to specify the install prefix in the configuration stage for each library build.</p>
-<p>Some of the libraries are not required for building the code. Typically, we require one to have VTK, PETSc, HDF5, and METIS as minimum requirement.</p>
+<p>This is a guide for installing the VTK, PETSc, and related libraries, which are needed by the most FEM analysis code. The default operating system is Linux Ubuntu. Installing these libraries on Mac OS may require minor changes.</p>
+<p>In general, we do an out-of-source compiling, which means we will have all the libraries installed in a specified location (in this guide, $HOME/lib). This is because we typically do not have access to /usr/local in clusters. Roughly speaking, this requires you specify the install prefix in the configuration stage for each library build.</p>
+<p>Some of the libraries are optional for running the code. We require one to have VTK, PETSc, HDF5, and METIS as minimum requirement.</p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#Create-a-lib-folder">Create a lib folder</a></li>
@@ -31,7 +31,7 @@ description: HPC
 $ mkdir <span class="hljs-class"><span class="hljs-keyword">lib</span></span>
 </code></pre>
 <h2 id="install-valgrind">Install Valgrind</h2>
-<p>The Valgrind is a software for detecting memory leaking errors. It is <strong>not mandatory</strong> for compiling the PERIGEE code. For example, we do not install it on clusters. It is just useful when one do code development. Install Valgrind can be very straightforward in Linux.</p>
+<p>Valgrind is a software for detecting memory leaking errors. It is <strong>not mandatory</strong> for compiling the code. For instance, we do not install it on clusters. It is just a very useful tool for code development. Install Valgrind can be very straightforward in Linux.</p>
 <pre><code class="lang-sh">$ sudo apt <span class="hljs-keyword">install</span> valgrind
 </code></pre>
 <p>Then try</p>
@@ -48,7 +48,7 @@ $ mkdir <span class="hljs-class"><span class="hljs-keyword">lib</span></span>
 <pre><code class="lang-sh">$ <span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">load</span> <span class="hljs-title">cmake</span></span>
 </code></pre>
 <h2 id="install-vtk">Install VTK</h2>
-<p>The PERIGEE code is compatible with VTK-5, VTK-6, and VTK-7. In the following, we demonstrate steps for compiling VTK-7.1.1.</p>
+<p>The code is compatible with VTK-5, VTK-6, and VTK-7 so far. In the following, we demonstrate steps for compiling VTK-7.1.1.</p>
 <p>First, download the source file of VTK-7.1.1, and extract the tar ball. You do not have to download it to the lib folder because eventually we will remove the source folder afte we build the library. In this guide, we download it to the home directory.</p>
 <pre><code class="lang-sh"><span class="hljs-variable">$ </span>cd <span class="hljs-variable">$HOME</span>
 <span class="hljs-variable">$ </span>wget <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/www.vtk.org/files</span><span class="hljs-regexp">/release/</span><span class="hljs-number">7.1</span>/VTK-<span class="hljs-number">7.1</span>.<span class="hljs-number">1</span>.tar.gz
@@ -133,6 +133,5 @@ $ rm -rf metis-<span class="hljs-number">5.0</span>.<span class="hljs-number">3<
 </code></pre>
 <h2 id="install-paraview">Install ParaView</h2>
 <p>If you really want to try, you may download the ParaView source file and do an out-of-source build, just like what we did for VTK. I just directly download the binary file from the <a href="https://www.paraview.org/download/">ParaView website</a>, and extract it in the <code>$HOME/lib</code> folder. Note, you do <strong>not</strong> have to install ParaView on a cluster.</p>
-
 
 </div>

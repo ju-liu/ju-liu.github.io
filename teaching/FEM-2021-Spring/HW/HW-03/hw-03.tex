@@ -92,17 +92,19 @@ From the above Euler-Lagrange equation, one may readily conclude that the Galerk
 & \sigma_{ij}n_j = h_i, && \mbox{ on } \Gamma_h, \displaybreak[2]\\
 & \llbracket \sigma_{ij}n_j\rrbracket = 0, && \mbox{ on } \Gamma_{\mathrm{int}}.
 \end{align*}
+In the above, $\llbracket \cdot \rrbracket$ is a jump operator. Let $e$ be an interior edge shared by elements $\Omega^1$ and $\Omega^2$. Define the unit normal vectors $n^1$ and $n^2$ on $e$ pointing exterior to $\Omega^1$ and $\Omega^2$, respectively. Let $\sigma^k_{ij} := \sigma_{ij}|_{\partial \Omega^k}$, we set
+\begin{align*}
+\llbracket \sigma_{ij}n_j\rrbracket := \sigma^1_{ij}n^1_j + \sigma^2_{ij}n^2_j, \quad \mbox{ on } e.
+\end{align*}
 \end{enumerate}
 
 \item(Voigt notation) 
 \begin{enumerate}
 \item Show that $\bm \sigma^{\mathrm{vect}} = \bm D \bm \epsilon^{\mathrm{vect}}(\bm u)$ is equivalent to $\sigma_{ij} = c_{ijkl} \sigma_{kl}$.
 \item Show that $w_{(i,j)} c_{ijkl} u_{(k,l)} = \left( \bm \epsilon^{\mathrm{vect} }(\bm w)\right)^T \bm D \bm \epsilon^{\mathrm{vect}}(\bm u)$.
-\item For isotropic materials, setup the matrix $\bm D$.
 \end{enumerate}
 
-
-\item Use quadratic and linear shape functions to design shape functions for the six-node quadrilateral depicted in the following figure. Write a pseudo-code (or draw a flow chart) that calculate the basis functions and their derivative values at a given quadrature point.
+\item (Two-dimensional element routine) Use quadratic and linear shape functions to design shape functions for the six-node quadrilateral depicted in the following figure. Write a pseudo-code (or draw a flow chart) that calculate the basis functions and their derivative values at a given quadrature point. You may want to consult Section 3.9 of the textbook.
 
 \begin{figure}[h]
 	\begin{center}
@@ -110,7 +112,30 @@ From the above Euler-Lagrange equation, one may readily conclude that the Galerk
 \includegraphics[angle=0, trim=0 0 0 0, clip=true, scale = 0.35]{./6node-elem.pdf}
 \end{tabular}
 \end{center} 
+\caption{6-node element}
 \label{fig:quad_elem}
+\end{figure}
+
+\item(Boundary condition specification) Let $\Omega \subset \mathbb R^2$, and let its boundary $\Gamma = \overline{\Gamma_1 \cup \Gamma_2\cup \Gamma_3 \cup \Gamma_4}$, where $\Gamma_k$, $k=1,2,3,$ and $4$ are non-overlapping subregions of $\Gamma$. Let $\bm n$ be the unit outward normal vector and $\bm s$ be a unit tangent vector such that $\bm s$ and $\bm n$ form a right-hand rule basis (see Figure \ref{fig:mix-bc}). Consider the strong-form problem of linear elastostatics: Given $f_i$, $g_i$, $h_i$, $g_n$, $h_s$, $g_s$, and $h_n$, find $u_i$ such that
+\begin{align*}
+\sigma_{ij,j} + f_i &= 0, && \mbox{ in } \Omega, \\
+u_i &= g_i, && \mbox{ on } \Gamma_1, \\
+\sigma_{ij}n_j &= h_i, &&\mbox{ on } \Gamma_2,\\
+u_i n_i &= g_n, && \mbox{ on } \Gamma_3, \\
+\sigma_{ij}n_js_i &= h_s, && \mbox{ on } \Gamma_3, \\
+u_i s_i &= g_s, && \mbox{ on } \Gamma_4, \\
+\sigma_{ij}n_jn_i &= h_n, && \mbox{ on } \Gamma_4.
+\end{align*} 
+Establish a weak formulation for this problem in which all ``$g$-type" boundary condition are essential and all ``$h$-type" boundary conditions are natural. In particular, please clearly define your trial solution and test function spaces.
+
+\begin{figure}[ht]
+	\begin{center}
+	\begin{tabular}{c}
+\includegraphics[angle=0, trim=0 0 0 0, clip=true, scale = 0.35]{./mixed-bc.pdf}
+\end{tabular}
+\end{center} 
+\caption{The unit outward normal and unit tangent vectors.}
+\label{fig:mix-bc}
 \end{figure}
 
 \item(Final projects stage 1: Design your problem) Select one of the analysis problems listed below as your final project topic. Here are some possible problems for the project.
@@ -120,7 +145,8 @@ From the above Euler-Lagrange equation, one may readily conclude that the Galerk
 \item Three-dimensional thermal analysis;
 \item Plane-strain elastodynamic analysis;
 \item Plane-strain linear visco-elasticity analysis;
-\item Solve Helmholtz equation via the p-version finite element method;
+\item Solve the Helmholtz equation via the p-version finite element method;
+\item Solve the advection-diffusion equation;
 \item Your own project (discuss with me).
 \end{itemize}
 You are encouraged to work with teammates. Each team is allowed to have 1, 2, or at most 3 members. At this stage, you need to decide your project topic and setup your team. In this homework, you shall report (1) your project topic and (2) your team members.

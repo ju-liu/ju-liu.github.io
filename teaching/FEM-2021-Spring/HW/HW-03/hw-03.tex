@@ -58,7 +58,7 @@ S_{ij} T_{ij} = S_{(ij)}T_{ij} = S_{(ij)}T_{(ij)}.
 
 \item (Euler-Lagrange condition of the Galerkin formulation) 
 \begin{enumerate}
-\item Consider the weak-form problem of the one-dimensional model problem,
+\item Consider the weak-form problem for the one-dimensional model problem,
 \begin{align*}
 \int_0^1 w_{,x} u_{,x} dx = \int_0^1 w f dx + w(0)h,
 \end{align*}
@@ -100,7 +100,7 @@ In the above, $\llbracket \cdot \rrbracket$ is a jump operator. Let $e$ be an in
 
 \item(Voigt notation) 
 \begin{enumerate}
-\item Show that $\bm \sigma^{\mathrm{vect}} = \bm D \bm \epsilon^{\mathrm{vect}}(\bm u)$ is equivalent to $\sigma_{ij} = c_{ijkl} \sigma_{kl}$.
+\item Show that $\bm \sigma^{\mathrm{vect}} = \bm D \bm \epsilon^{\mathrm{vect}}(\bm u)$ is equivalent to $\sigma_{ij} = c_{ijkl} \epsilon_{kl}$.
 \item Show that $w_{(i,j)} c_{ijkl} u_{(k,l)} = \left( \bm \epsilon^{\mathrm{vect} }(\bm w)\right)^T \bm D \bm \epsilon^{\mathrm{vect}}(\bm u)$.
 \end{enumerate}
 
@@ -138,7 +138,7 @@ Establish a weak formulation for this problem in which all ``$g$-type" boundary 
 \label{fig:mix-bc}
 \end{figure}
 
-\item(Final projects stage 1: Design your problem) Select one of the analysis problems listed below as your final project topic. Here are some possible problems for the project.
+\item(Final project stage 1: Design your problem) Select one of the analysis problems listed below as your final project topic. Here are some possible problems for the project.
 \begin{itemize}
 \item Bernoulli-Euler beam and Timoshenko beam theories;
 \item Solve plane-strain incompressible materials using the mixed finite element method;
@@ -151,7 +151,7 @@ Establish a weak formulation for this problem in which all ``$g$-type" boundary 
 \end{itemize}
 You are encouraged to work with teammates. Each team is allowed to have 1, 2, or at most 3 members. At this stage, you need to decide your project topic and setup your team. In this homework, you shall report (1) your project topic and (2) your team members.
 
-A few more words about the final projects: Final projects will be reported by a in-class presentation (10 minutes) and a written report. A report shall include the following contents.
+A few more words about the final project: Final project will be reported by a in-class presentation (10 minutes) and a written report. A report shall include the following contents.
 \begin{itemize}
 \item Problem description: Describe the objective of the analysis. Describe the physical model to be analyzed and the overall engineering assumptions, material properties, loading conditions, etc.
 \item Design of the numerical methods: Describe the weak-form problem, the finite element technology chosen, the Galerkin formulation, and the matrix problem.

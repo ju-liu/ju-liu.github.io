@@ -1,14 +1,16 @@
+% clean the memory and the screen
 clear all; clc;
 
 % material properties and input data
 kappa = 5.0;
 
 % exact solution
-exact = @(x) exp(x);
+exact = @(x) sin(x);
+exact_x = @(x) cos(x);
 
-f = @(x) -1.0 * kappa * exp(x);
+f = @(x) kappa * sin(x);
 h = @(x) -kappa;
-g = @(x) exp(1);
+g = @(x) sin(1);
 
 % domain
 omega_l = 0.0;
@@ -17,15 +19,15 @@ omega_r = 1.0;
 % interpolation degree
 pp = 1;
 
+% number of elements
+nElem = 5;
+
 % quadrature rule
-nqp = 2;
+nqp = 6;
 [qp, wq] = Gauss(nqp, -1, 1);
 
-% finite element mesh
-nElem = 5; 
-
-n_np = nElem + 1;
-n_en = pp + 1;
+n_np = nElem + 1; % number of nodal points
+n_en = pp + 1;    % number of element nodes
 
 IEN = zeros(n_en, nElem);
 
@@ -36,7 +38,7 @@ for ee = 1 : nElem
 end
 
 % mesh is assumbed to have uniform size hh
-hh = (omega_r - omega_l) / nElem; 
+hh = (omega_r - omega_l) / nElem;
 
 x_coor = omega_l : hh : omega_r;
 
@@ -49,11 +51,13 @@ ID(end) = 0;
 % Dirichlet nodes
 n_eq = n_np - 1;
 
+% Allocate an empty stiffness matrix and load vector
 K = sparse(n_eq, n_eq);
 F = zeros(n_eq, 1);
 
 % Assembly the siffness matrix and load vector
 for ee = 1 : nElem
+    % Allocate zero element stiffness matrix and element load vector
     k_ele = zeros(n_en, n_en);
     f_ele = zeros(n_en, 1);
     
@@ -63,6 +67,7 @@ for ee = 1 : nElem
     end
     
     for qua = 1 : nqp
+        % geometrical mapping
         x_qua = 0.0;
         dx_dxi = 0.0;
         for aa = 1 : n_en
@@ -110,9 +115,9 @@ for ee = 1 : nElem
 end
 
 % Solve the stiffness matrix problem
-disp = K \ F;
+uh = K \ F;
 
 % Append the displacement vector by the Dirichlet data
-disp = [ disp; g(omega_r) ];
+uh = [ uh; g(omega_r) ];
 
 % EOF

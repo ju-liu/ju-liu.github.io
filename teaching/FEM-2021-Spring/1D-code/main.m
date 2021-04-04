@@ -17,30 +17,30 @@ omega_l = 0.0;
 omega_r = 1.0;
 
 % interpolation degree
-pp = 1;
+pp = 2;
 
 % number of elements
-nElem = 5;
+nElem = 4;
 
 % quadrature rule
 nqp = 6;
 [qp, wq] = Gauss(nqp, -1, 1);
 
-n_np = nElem + 1; % number of nodal points
-n_en = pp + 1;    % number of element nodes
+n_np = nElem * pp + 1; % number of nodal points
+n_en = pp + 1;         % number of element nodes
 
 IEN = zeros(n_en, nElem);
 
 for ee = 1 : nElem
     for aa = 1 : n_en
-        IEN(aa, ee) = ee - 1 + aa;
+        IEN(aa, ee) = (ee - 1) * pp + aa;
     end
 end
 
 % mesh is assumbed to have uniform size hh
 hh = (omega_r - omega_l) / nElem;
 
-x_coor = omega_l : hh : omega_r;
+x_coor = omega_l : (hh/pp) : omega_r;
 
 % setup ID array based on the boundary condition
 ID = 1 : n_np;
@@ -119,5 +119,34 @@ uh = K \ F;
 
 % Append the displacement vector by the Dirichlet data
 uh = [ uh; g(omega_r) ];
+
+top = 0.0; bot = 0.0;
+for ee = 1 : nElem
+    for qua = 1 : nqp
+        x_ele = zeros(n_en, 1);
+        u_ele = zeros(n_en, 1);
+        for aa = 1 : n_en
+            x_ele(aa) = x_coor(IEN(aa, ee));
+            u_ele(aa) = uh(IEN(aa, ee));
+        end
+        
+        x = 0.0; dx_dxi = 0.0; duh_dxi = 0.0;
+        for aa = 1 : n_en
+            x = x + x_ele(aa) * PolyBasis(pp, aa, 0, qp(qua));
+            dx_dxi = dx_dxi + x_ele(aa) * PolyBasis(pp, aa, 1, qp(qua));
+            duh_dxi = duh_dxi + u_ele(aa) * PolyBasis(pp, aa, 1, qp(qua));
+        end
+        
+        dxi_dx = 1.0 / dx_dxi;
+        
+        top = top + wq(qua) * (duh_dxi * dxi_dx - exact_x(x))^2 * dx_dxi;
+        bot = bot + wq(qua) * exact_x(x)^2 * dx_dxi;
+    end
+end
+
+top = sqrt(top);
+bot = sqrt(bot);
+
+error = top / bot;
 
 % EOF

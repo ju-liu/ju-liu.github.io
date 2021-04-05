@@ -52,6 +52,58 @@ Homework 4
 \end{center}
 \begin{enumerate}
 \item Show that the stiffness matrix of the linear elastostatic problem is symmetric.
+
+\item (Triangle element) Consider the two-dimensional triangle element. Its parent or reference element is defined in the $r-s$ coordinate as is shown in Figure \ref{fig:tri}. For convenience, the coordinate $t := 1 - r - s$ is introduced. It can be easily observed that $t= \mathrm{constant}$ represents the lines parallel to the inclined edge of the triangle.
+
+\begin{figure}[h]
+	\begin{center}
+	\begin{tabular}{c}
+\includegraphics[angle=0, trim=0 0 0 0, clip=true, scale = 0.35]{./triangle_elem.pdf}
+\end{tabular}
+\end{center} 
+\caption{Triangle element in the reference domain.}
+\label{fig:tri}
+\end{figure}
+
+\begin{enumerate}
+\item Consider the three node triangle element, whose shape functions are 
+\begin{align*}
+N_1(r,s) = r, \quad N_2(r,s) = s, \quad N_3(r,s) = t = 1 - r - s.
+\end{align*}
+Use the surf function in MATLAB to visualize the shape functions.
+
+\item The quadratic element defined on the triangle has shape functions
+\begin{align*}
+& N_1(r,s) = r(2r-1), \quad N_2(r,s) = s(2s-1), \quad N_3(r,s) = t(2t-1), \\
+& N_4(r,s) = 4rs, \quad N_5(r,s) = 4st, \quad N_6(r,s) = 4rt.
+\end{align*}
+Again, visualize these shape functions.
+
+\item Consider the 3-point quadrature rule for the triangle shown in Figure \ref{fig:tri} as follows.
+\begin{align*}
+&w_1 = \frac{1.0}{3.0}, \quad r_1 = 0.5, \quad s_1 = 0.5; \\
+&w_2= \frac{1.0}{3.0}, \quad r_2 = 0.5, \quad s_2 = 0.0;\\
+&w_3 = \frac{1.0}{3.0}, \quad r_3 = 0.0, \quad s_3 = 0.5.
+\end{align*}
+Determine the algebraic accuracy of this quadrature rule.
+\end{enumerate}
+
+
+
+\item (convergence rate of the error in the $L_2$-norm) Revisit the MATLAB code we developed in the second homework and do the following.
+\begin{enumerate}
+\item Plot the basis functions for polynomial degree 1, 2, 3, 4, 5, and 6 on the reference or parent domain $\hat{\Omega}=[-1,1]$.
+\item Implement the septic element in the shape function routine PolyBasis.m.
+\item Let $e:=u^h - u$ be the error in the finite element approximation. Calculate
+\begin{align*}
+\|e\|_0 := \left( \int_0^1  e^2 dx \right)^{\frac12},
+\end{align*}
+and 
+\begin{align*}
+\|u\|_0 := \left( \int_0^1  u^2 dx \right)^{\frac12},
+\end{align*}
+for meshes with 4, 6, 8, 10, 12, and 16 elements. Report the relative errors $\|e\|_0/\|u\|_0$ for linear, quadratic, cubic, quartic, quintic, sextic, and septic elements in a table. Observe the pattern of the errors and make comments.
+\end{enumerate}
 \end{enumerate}
 
 \end{document}

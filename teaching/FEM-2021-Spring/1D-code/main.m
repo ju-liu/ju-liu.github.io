@@ -149,4 +149,18 @@ bot = sqrt(bot);
 
 error = top / bot;
 
+% Remark:
+%
+% h-Fem or h-version fo the finite element method refers to maintaining the
+% polynomial degree (probably low-order polynomial) and reducing the 
+% element size. We note here h usually refers to the characteristic element
+% size.
+%
+% p-FEM or p-version of the finite element method refers to a
+% discretization strategy by elevating the polynomial degree with mesh
+% fixed.
+%
+% hp-FEM referes to using a suitable combination of h-refinements and
+% p-refinements, and it may give exponential convergence rates.
+%
 % EOF

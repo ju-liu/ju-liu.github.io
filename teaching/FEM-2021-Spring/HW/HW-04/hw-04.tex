@@ -93,7 +93,6 @@ Determine the algebraic accuracy of this quadrature rule.
 \item (convergence rate of the error in the $L_2$-norm) Revisit the MATLAB code we developed in the second homework and do the following.
 \begin{enumerate}
 \item Plot the basis functions for polynomial degree 1, 2, 3, 4, 5, and 6 on the reference or parent domain $\hat{\Omega}=[-1,1]$.
-\item Implement the septic element in the shape function routine PolyBasis.m.
 \item Let $e:=u^h - u$ be the error in the finite element approximation. Calculate
 \begin{align*}
 \|e\|_0 := \left( \int_0^1  e^2 dx \right)^{\frac12},
@@ -102,9 +101,8 @@ and
 \begin{align*}
 \|u\|_0 := \left( \int_0^1  u^2 dx \right)^{\frac12},
 \end{align*}
-for meshes with 4, 6, 8, 10, 12, and 16 elements. Report the relative errors $\|e\|_0/\|u\|_0$ for linear, quadratic, cubic, quartic, quintic, sextic, and septic elements in a table. Observe the pattern of the errors and make comments.
+for meshes with 4, 6, 8, 10, 12, and 16 elements. Report the relative errors $\|e\|_0/\|u\|_0$ for linear, quadratic, cubic, quartic, quintic, and sextic elements in a table. Observe the pattern of the errors and make comments.
 \end{enumerate}
 \end{enumerate}
 
 \end{document}
-

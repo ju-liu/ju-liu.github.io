@@ -17,13 +17,13 @@ omega_l = 0.0;
 omega_r = 1.0;
 
 % interpolation degree
-pp = 2;
+pp = 5;
 
 % number of elements
 nElem = 4;
 
 % quadrature rule
-nqp = 6;
+nqp = 4;
 [qp, wq] = Gauss(nqp, -1, 1);
 
 n_np = nElem * pp + 1; % number of nodal points
@@ -119,6 +119,10 @@ uh = K \ F;
 
 % Append the displacement vector by the Dirichlet data
 uh = [ uh; g(omega_r) ];
+
+% Now we do the postprocessing
+nqp = 6;
+[qp, wq] = Gauss(nqp, -1, 1);
 
 top = 0.0; bot = 0.0;
 for ee = 1 : nElem

@@ -53,6 +53,23 @@ Homework 4
 \begin{enumerate}
 \item Show that the stiffness matrix of the linear elastostatic problem is symmetric.
 
+\item Verify that for three-dimensional elasticity,
+\begin{align*}
+\mathbf{B}_a = 
+\begin{bmatrix}
+N_{a,1} & 0 & 0 \\
+0 & N_{a,2} & 0 \\
+0 & 0 & N_{a,3} \\
+0 & N_{a,3} & N_{a,2} \\
+N_{a,3} & 0 & N_{a,1} \\
+N_{a,2} & N_{a,1} & 0
+\end{bmatrix},
+\end{align*}
+and
+\begin{align*}
+\bm \epsilon^{vect}(N_a \bm e_i) = \mathbf{B}_a \bm e_i
+\end{align*}
+
 \item (Triangle element) Consider the two-dimensional triangle element. Its parent or reference element is defined in the $r-s$ coordinate as is shown in Figure \ref{fig:tri}. For convenience, the coordinate $t := 1 - r - s$ is introduced. It can be easily observed that $t= \mathrm{constant}$ represents the lines parallel to the inclined edge of the triangle.
 
 \begin{figure}[h]
@@ -92,8 +109,8 @@ Determine the algebraic accuracy of this quadrature rule.
 
 \item (convergence rate of the error in the $L_2$-norm) Revisit the MATLAB code we developed in the second homework and do the following.
 \begin{enumerate}
-\item Plot the basis functions for polynomial degree 1, 2, 3, 4, 5, and 6 on the reference or parent domain $\hat{\Omega}=[-1,1]$.
-\item Let $e:=u^h - u$ be the error in the finite element approximation. Calculate
+\item Plot the basis functions for polynomial degree 1, 2, 3, 4, 5, and 6 on the reference element $\hat{\Omega}=[-1,1]$.
+\item Let $e:=u^h - u$ be the error of the finite element approximation. Calculate
 \begin{align*}
 \|e\|_0 := \left( \int_0^1  e^2 dx \right)^{\frac12},
 \end{align*}
@@ -101,7 +118,7 @@ and
 \begin{align*}
 \|u\|_0 := \left( \int_0^1  u^2 dx \right)^{\frac12},
 \end{align*}
-for meshes with 4, 6, 8, 10, 12, and 16 elements. Report the relative errors $\|e\|_0/\|u\|_0$ for linear, quadratic, cubic, quartic, quintic, and sextic elements in a table. Observe the pattern of the errors and make comments.
+for meshes with 4, 6, 8, 10, 12, and 16 elements. Report the relative errors $\|e\|_0/\|u\|_0$ for linear, quadratic, cubic, quartic, quintic, and sextic elements in a table. Calculate the corresponding convergence rates. Make comments.
 \item For the polynomial degree being 1, 2, 3, 4, 5, and 6, tune the number of quadrature points. You may see that the stiffness matrix may be rank deficient (i.e. singular) if there are not enough quadrature points. How many quadrature points are needed to ensure the stiffness to be non-singular for different polynomial degrees? Do you have a theoretical explanation?
 \end{enumerate}
 \end{enumerate}

@@ -20,10 +20,10 @@ omega_r = 1.0;
 pp = 5;
 
 % number of elements
-nElem = 4;
+nElem = 8;
 
 % quadrature rule
-nqp = 4;
+nqp = 6;
 [qp, wq] = Gauss(nqp, -1, 1);
 
 n_np = nElem * pp + 1; % number of nodal points

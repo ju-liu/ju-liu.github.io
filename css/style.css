@@ -60,6 +60,9 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
 
 .notes, .contact, .about, .cv, .error, .swatches { margin-bottom: 30px; }
 
+/* Course */
+.course {line-height: 25px; width: 100%; margin: 0 auto;}
+
 /* Contact */
 iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 

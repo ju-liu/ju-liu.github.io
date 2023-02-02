@@ -1,2 +1,2 @@
 # ju-liu.github.io
-This is my new web host.
+This is Ju Liu's personal website.

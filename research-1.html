@@ -1,0 +1,53 @@
+---
+layout: default2
+title: TEAM
+home: passive
+about: passive
+research: active
+publications: passive
+description: Research of Dr. Ju Liu 
+---
+<div class="cv">
+
+<h1>Research Overview</h1>
+
+  <p>
+    My research centers on advancing the theoretical foundation and numerical implementation of constitutive modeling for materials undergoing large deformations. A unifying theme across my work is the development of <strong>structure-aware modeling frameworks</strong> that bridge continuum mechanics, thermodynamics, and modern computational strategies.
+  </p>
+
+  <h2>Constitutive Modeling Grounded in Generalized Strains</h2>
+  <p>
+    Traditional approaches to finite viscoelasticity often rely on the notion of an intermediate configuration and the multiplicative decomposition of the deformation gradient. While effective in many cases, this framework presents conceptual ambiguities and challenges when modeling anisotropic behavior or designing consistent numerical algorithms.
+  </p>
+  <p>
+    In contrast, my research proposes an alternative paradigm rooted in the <strong>Green–Naghdi kinematic assumption</strong>, which eliminates the need for the intermediate configuration. Central to this framework is the introduction of <strong>generalized strain measures</strong> as a flexible and mathematically robust tool to describe nonlinear material responses. These strain measures form the basis of a generalized hyperelastic theory (Hill’s class), and when coupled with appropriately defined internal variables, allow the modeling of both rate-independent and rate-dependent behaviors in a unified manner.
+  </p>
+
+  <p>
+    One of the key theoretical insights is that when the configurational free energy is expressed as a function of the difference between two generalized strains, the resulting evolution equations naturally satisfy the <strong>relaxation property</strong>, a crucial requirement for physical admissibility. This construction also ensures compatibility with the additive strain decomposition in the infinitesimal limit and facilitates the design of consistent thermodynamic models for inelasticity.
+  </p>
+
+  <h2>Structure-Preserving Numerical Methods</h2>
+  <p>
+    On the computational side, I have developed <strong>structure-preserving integration schemes</strong> for finite strain problems, particularly targeting incompressible hyperelastic and viscoelastic solids. These methods are built upon mixed variational formulations and are carefully designed to conserve energy and momenta at the fully discrete level. A notable innovation is the integration of <strong>grad-div stabilization</strong>—a concept originally developed in computational fluid dynamics—into finite elasticity, which significantly improves volume conservation in numerical simulations.
+  </p>
+  <p>
+    Furthermore, my work supports stretch-based material models that require spectral decompositions. Recognizing the numerical fragility of common eigenvalue-based implementations, I employ robust algorithms such as the Scherzinger–Dohrmann method to ensure stability and accuracy in high-fidelity computations. These techniques are seamlessly embedded in a <strong>modular framework</strong> that facilitates the implementation of various material models while maintaining consistency with conservation laws.
+  </p>
+
+  <h2>Key Features of the Framework</h2>
+  <ul>
+    <li>Thermodynamically consistent modeling without intermediate configurations</li>
+    <li>Use of generalized, coercive strains to construct flexible constitutive laws</li>
+    <li>Relaxation-compatible evolution equations for internal variables</li>
+    <li>Energy–momentum preserving time integration schemes</li>
+    <li>Stabilized mixed formulations for incompressible elasticity</li>
+    <li>Robust eigenvalue-based implementations for stretch-driven models</li>
+  </ul>
+
+  <h2>Outlook</h2>
+  <p>
+    The synergy between mathematical structure and computational implementation forms the backbone of my research. Looking forward, I am extending these ideas to multi-physics problems such as thermo-viscoelasticity and electro-mechanical coupling, as well as exploring data-driven constitutive modeling strategies that are consistent with continuum thermomechanics.
+  </p>
+
+</div>

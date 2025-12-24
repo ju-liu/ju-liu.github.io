@@ -52,6 +52,13 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
 .swatch-log p { font-size: 14px; clear: left; margin-top: 10px; font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; }
 .clear { clear: both; height: 20px; }
 
+.id-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;        /* 图标和文字之间 */
+  margin-right: 12px;  /* 不同 ID 之间 */
+}
+
 /* CV */
 .cv {line-height: 23px; width: 90%; margin: 0 auto;}
 .cv li { line-height: 23px; }

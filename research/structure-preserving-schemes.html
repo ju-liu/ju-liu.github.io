@@ -1,0 +1,63 @@
+---
+layout: default2
+title: Higher-order and structure-preserving numerical methods
+home: passive
+about: passive
+research: active
+publications: passive
+description: Detailed information on higher-order and structure-preserving numerical methods for nonlinear continuum mechanics.
+---
+
+<div class="cv">
+
+<p>
+My research develops higher-order and structure-preserving numerical methods for nonlinear continuum mechanics, with particular emphasis on long-time stability and the faithful reproduction of fundamental physical laws at the discrete level. Rather than designing numerical schemes solely from the viewpoint of local approximation accuracy, we construct fully discrete formulations that inherit the energy balance and conservation properties of the underlying continuum models. For finite elastodynamics and viscoelastodynamics, this leads to energy-momentum consistent schemes that conserve linear and angular momenta while either preserving the total energy in conservative systems or reproducing physically meaningful dissipation in inelastic materials. A key aspect of this work is the consistent design of algorithmic stresses and internal-variable updates so that constitutive integration and global balance laws remain compatible after discretization.
+</p>
+
+<div style="display: grid; gap: 1.25rem; margin-top: 1.5rem;">
+<figure style="margin: 0;">
+  <img src="{{ '/img/structure-preserving-dynamics.jpg' | relative_url }}"
+       alt="Long-time nonlinear dynamics computed using structure-preserving energy-momentum schemes"
+       style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+</figure>
+</div>
+
+<p>
+Another direction of my research concerns robust higher-order discretizations for constrained nonlinear dynamics. For incompressible finite elastodynamics, we combine mixed formulations with spline-based generalized Taylor-Hood discretizations to obtain higher-order and inf-sup stable approximations, while grad-div stabilization is introduced to improve discrete volume conservation without destroying the underlying energy-momentum structure. In parallel, we investigate numerical pathologies in classical energy-momentum methods, such as the singular behavior associated with difference-quotient formulas, and develop non-singular alternatives based on energy splitting and perturbation techniques. The overarching objective is to construct numerical methods that achieve high accuracy while retaining invariants, dissipation mechanisms, and kinematic constraints at the fully discrete level.
+</p>
+
+<div style="display: grid; gap: 1.25rem; margin-top: 1.5rem;">
+<figure style="margin: 0;">
+  <img src="{{ '/img/incompressible-elastodynamics.jpg' | relative_url }}"
+       alt="Higher-order mixed discretization and structure-preserving simulation of incompressible finite elastodynamics"
+       style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+</figure>
+</div>
+
+<p>Related Publications</p>
+
+<p>
+J. Liu* and J. Guan,
+"A continuum and computational framework for viscoelastodynamics: II. Strain-driven and energy-momentum consistent schemes",
+<em>Computer Methods in Applied Mechanics and Engineering</em>,
+417:116308, 2023.
+[<a href="https://doi.org/10.1016/j.cma.2023.116308">link</a>]
+</p>
+
+<p>
+J. Liu*,
+"On the design of non-singular, energy-momentum consistent integrators for nonlinear dynamics using energy splitting and perturbation techniques",
+<em>Journal of Computational Physics</em>,
+487:112177, 2023.
+[<a href="https://doi.org/10.1016/j.jcp.2023.112177">link</a>]
+</p>
+
+<p>
+J. Guan, H. Yuan, and J. Liu*,
+"A structure-preserving integrator for incompressible finite elastodynamics based on a grad-div stabilized mixed formulation with particular emphasis on stretch-based material models",
+<em>Computer Methods in Applied Mechanics and Engineering</em>,
+414:116145, 2023.
+[<a href="https://doi.org/10.1016/j.cma.2023.116145">link</a>]
+</p>
+
+</div>

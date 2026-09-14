@@ -23,7 +23,7 @@ My research develops higher-order and structure-preserving numerical methods for
 </div>
 
 <p>
-Another direction of my research concerns robust higher-order discretizations for constrained nonlinear dynamics. For incompressible finite elastodynamics, we combine mixed formulations with spline-based generalized Taylor-Hood discretizations to obtain higher-order and inf-sup stable approximations, while grad-div stabilization is introduced to improve discrete volume conservation without destroying the underlying energy-momentum structure. In parallel, we investigate numerical pathologies in classical energy-momentum methods, such as the singular behavior associated with difference-quotient formulas, and develop non-singular alternatives based on energy splitting and perturbation techniques. The overarching objective is to construct numerical methods that achieve high accuracy while retaining invariants, dissipation mechanisms, and kinematic constraints at the fully discrete level.
+Another direction of my research focuses on higher-order numerical methods for incompressible flows and turbulence modeling. We develop half-explicit Runge–Kutta (HERK) schemes within the residual-based variational multiscale (VMS) framework, with the goal of achieving higher-order accuracy in both space and time while maintaining a mathematically consistent treatment of the incompressibility constraint. Guided by the Rothe method, the temporal discretization is designed directly for the differential-algebraic structure of the incompressible Navier–Stokes equations, avoiding the order-reduction issues that can arise in conventional multi-stage schemes. The explicit treatment of nonlinear convection further enables a systematic VMS analysis with fewer modeling assumptions. Through stability and Fourier analyses, together with turbulent-flow and hydrodynamic-instability benchmarks, these methods demonstrate improved dissipation and dispersion characteristics and enhanced ability to resolve sensitive multiscale flow dynamics.
 </p>
 
 <div style="display: grid; gap: 1.25rem; margin-top: 1.5rem;">
@@ -35,6 +35,14 @@ Another direction of my research concerns robust higher-order discretizations fo
 </div>
 
 <p>Related Publications</p>
+
+<p>
+Y. Sun, C. Ding, and J. Liu*,
+"Half-explicit Runge-Kutta integrators for variational multiscale turbulence modeling: Toward higher-order accuracy in space and time",
+<em>Computer Methods in Applied Mechanics and Engineering</em>,
+456:118930, 2026.
+[<a href="https://doi.org/10.1016/j.cma.2026.118930">link</a>]
+</p>
 
 <p>
 J. Liu* and J. Guan,
